@@ -384,7 +384,7 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 .mc-foot { padding:0.8rem 1rem; border-top:1px solid var(--border); display:flex; justify-content:space-between; font-family:'JetBrains Mono',monospace; font-size:0.63rem; color:var(--muted); }
 .acc-val { color:var(--green); font-weight:700; }
 
-.hero-stats { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; margin-top:1rem; overflow:hidden; }
+.hero-stats { display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--border); border:1px solid var(--border); border-radius:6px; margin-top:1rem; overflow:hidden; }
 .hst { background:var(--card); padding:1rem; text-align:center; }
 .hst-n { font-family:'Orbitron',monospace; font-size:1.5rem; font-weight:700; color:var(--cyan); display:block; line-height:1; }
 .hst-l { font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--muted); letter-spacing:0.08em; text-transform:uppercase; margin-top:0.3rem; display:block; }
@@ -412,6 +412,8 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 .proj-card:has(.bg-book):hover { box-shadow: 0 0 40px rgba(255,214,10,0.1), 0 8px 30px rgba(0,0,0,0.4); }
 .proj-card:has(.bg-career):hover { box-shadow: 0 0 40px rgba(0,229,255,0.1), 0 8px 30px rgba(0,0,0,0.4); }
 .proj-card:has(.bg-tableau):hover { box-shadow: 0 0 40px rgba(255,107,53,0.12), 0 8px 30px rgba(0,0,0,0.4); }
+.proj-card:has(.bg-rival):hover { box-shadow: 0 0 40px rgba(255,107,53,0.14), 0 8px 30px rgba(0,0,0,0.4); }
+.proj-card:has(.bg-agent):hover { box-shadow: 0 0 40px rgba(0,255,163,0.14), 0 8px 30px rgba(0,0,0,0.4); }
 
 /* Project background layers */
 .pbg { position:absolute; inset:0; opacity:0; transition:opacity 0.5s; z-index:0; }
@@ -445,6 +447,12 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 .bg-algo { background:radial-gradient(ellipse 60% 60% at 60% 50%,rgba(139,92,246,0.08),transparent 65%); }
 .bg-algo::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(139,92,246,0.05) 1px,transparent 1px); background-size:28px 28px; }
 .bg-cert { background:radial-gradient(ellipse 55% 55% at 50% 50%,rgba(255,214,10,0.07),transparent 65%); }
+
+.bg-rival { background:radial-gradient(ellipse 60% 60% at 80% 25%,rgba(255,107,53,0.09),transparent 60%),radial-gradient(ellipse 45% 45% at 20% 80%,rgba(0,255,163,0.06),transparent 60%); }
+.bg-rival::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(0deg,rgba(255,107,53,0.02) 0px,rgba(255,107,53,0.02) 1px,transparent 1px,transparent 24px); }
+
+.bg-agent { background:radial-gradient(ellipse 65% 65% at 25% 30%,rgba(0,255,163,0.09),transparent 65%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(0,229,255,0.06),transparent 60%); }
+.bg-agent::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(0,255,163,0.05) 1px,transparent 1px); background-size:22px 22px; }
 
 .ci { position:relative; z-index:3; padding:1.8rem; height:100%; display:flex; flex-direction:column; }
 .ct { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.3rem; }
@@ -609,8 +617,8 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
   <span class="ssep">|</span>
   <span>B.Tech Graduate — AI & Machine Learning</span>
   <span class="ssep">|</span>
-  <span>13 repos public</span>
-  <div class="sticker"><span class="sticker-in">DRL · GANs · SimCLR · SAM · NLP · Computer Vision · Reinforcement Learning · Multi-Agent Systems · PyTorch · Google GenAI Certified · Deloitte Forage · TCS CodeVita #4207 ···</span></div>
+  <span>15 repos public</span>
+  <div class="sticker"><span class="sticker-in">DRL · GANs · SimCLR · SAM · NLP · Computer Vision · Reinforcement Learning · Multi-Agent Systems · RAG · LLM Agents · PyTorch · Google GenAI Certified · Deloitte Forage · TCS CodeVita #4207 ···</span></div>
 </div>
 
 <!-- HERO -->
@@ -631,7 +639,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
       </h1>
       <p class="hero-sub">
     B.Tech Graduate in <span class="hlc">Artificial Intelligence & Machine Learning</span>.<br>
-    Building intelligent systems through <span class="hlg">Deep Reinforcement Learning</span>, Computer Vision, and Generative AI.<br>
+    Building intelligent systems with <span class="hlg">Agentic AI</span>, <span class="hlg">RAG</span>, and <span class="hlg">Deep Reinforcement Learning</span>, across LLMs, Computer Vision, and Generative AI.<br>
     Author of a <span class="hlp">peer-reviewed publication</span> in Computer Vision and Generative AI.<br>
     <span id="typewriter"></span>
       </p>
@@ -660,18 +668,23 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
       </div>
       <div class="hero-stats">
     <div class="hst">
-        <span class="hst-n" id="c1" style="color:var(--cyan)">13</span>
+        <span class="hst-n" id="c1" style="color:var(--cyan)">15</span>
         <span class="hst-l">Repos</span>
     </div>
 
     <div class="hst">
-        <span class="hst-n" id="c2" style="color:var(--purple)">8</span>
+        <span class="hst-n" id="c2" style="color:var(--purple)">10</span>
         <span class="hst-l">Projects</span>
     </div>
 
     <div class="hst">
         <span class="hst-n" id="c3" style="color:var(--green)">1</span>
         <span class="hst-l">Publication</span>
+    </div>
+
+    <div class="hst">
+        <span class="hst-n" id="c4" style="color:var(--yellow)">10</span>
+        <span class="hst-l">Certifications</span>
     </div>
     </div>
     </div>
@@ -684,7 +697,46 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
     <div class="sec-head fi"><span class="sec-n">01</span><h2 class="sec-t rainbow">Projects</h2><div class="sec-l"></div></div>
     <div class="proj-grid">
 
-      <!-- DRONE — FEATURED -->
+      <!-- 1. RivalIQ — FEATURED -->
+      <a href="https://github.com/Moulya-Reddy/RivalIQ-AI_Powered_NBA_Strategy_Assistant" target="_blank" class="proj-card feat fi">
+        <div class="pbg bg-rival"></div>
+        <div class="ci">
+          <div class="feat-badge"><div class="fd"></div>Featured Project</div>
+          <div class="ct"><div class="cicon">🏀</div><span class="lb lb-py">Python</span></div>
+          <h3 class="cn">RivalIQ — NBA Strategy Assistant</h3>
+          <p class="cd">Full-stack applied-AI system combining RAG, LLM generation, and reinforcement learning on live NBA data. A from-scratch analytics layer derives team stats from raw games, a retrieval-grounded generator produces faithfulness-checked scouting reports, and a tabular Q-learning agent discovers real clutch-time strategies — stalling when ahead, fouling when behind — purely from reward signal.</p>
+          <div class="ctags"><span class="ctag">RAG</span><span class="ctag">LLM Generation</span><span class="ctag">Q-Learning</span><span class="ctag">Streamlit</span><span class="ctag">Groq</span><span class="ctag">Eval Pipelines</span></div>
+          <div class="ctags" style="margin-bottom:0.5rem;"><span class="ctag" style="color:var(--orange);border-color:rgba(255,107,53,0.25)">4 AI modules</span><span class="ctag" style="color:var(--orange);border-color:rgba(255,107,53,0.25)">10+ team metrics</span><span class="ctag" style="color:var(--orange);border-color:rgba(255,107,53,0.25)">74% vs 40% baseline win-rate</span></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
+        </div>
+      </a>
+
+      <!-- 2. Agentic Task Assistant -->
+      <a href="https://github.com/Moulya-Reddy/Agentic_Task_Assistant" target="_blank" class="proj-card fi">
+        <div class="pbg bg-agent"></div>
+        <div class="ci">
+          <div class="ct"><div class="cicon">🧩</div><span class="lb lb-py">Python</span></div>
+          <h3 class="cn">Agentic Task Assistant</h3>
+          <p class="cd">Tool-using AI agent built from scratch on the ReAct pattern (Thought → Action → Observation), with a live reasoning trace, a safe extensible tool registry, and a benchmark suite scoring tool-selection accuracy, latency, and token cost.</p>
+          <div class="ctags"><span class="ctag">ReAct</span><span class="ctag">LLM Agents</span><span class="ctag">Tool Use</span><span class="ctag">Groq</span></div>
+          <div class="ctags" style="margin-bottom:0.5rem;"><span class="ctag" style="color:var(--green);border-color:rgba(0,255,163,0.25)">4 tools integrated</span><span class="ctag" style="color:var(--green);border-color:rgba(0,255,163,0.25)">6-task eval suite</span></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
+        </div>
+      </a>
+
+      <!-- 3. Facial Aging -->
+      <a href="https://github.com/Moulya-Reddy/Facial_Aging_Using_SAM" target="_blank" class="proj-card fi">
+        <div class="pbg bg-face"></div>
+        <div class="ci">
+          <div class="ct"><div class="cicon">👤</div><span class="lb lb-py">Python</span></div>
+          <h3 class="cn">Facial Aging Using SAM</h3>
+          <p class="cd">Region-aware facial aging using Meta's Segment Anything Model. Photorealistic transformations on segmented facial structures via generative models.</p>
+          <div class="ctags"><span class="ctag">SAM</span><span class="ctag">Computer Vision</span><span class="ctag">GenAI</span></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
+        </div>
+      </a>
+
+      <!-- 4. DRONE — FEATURED -->
       <a href="https://github.com/Moulya-Reddy/Multi-Agent_Drone_Coordination_using_Deep_Reinforcement_Learning" target="_blank" class="proj-card feat fi">
         <div class="pbg bg-drone"></div>
         <div class="ci">
@@ -693,23 +745,11 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
           <h3 class="cn">Multi-Agent Drone Coordination using Deep Reinforcement Learning</h3>
           <p class="cd">Autonomous drone swarms that learn cooperative flight, collision avoidance, and mission-critical task allocation purely through reward-based learning. Implements MADDPG/PPO in custom 3D simulation environments — emergent intelligence at its finest.</p>
           <div class="ctags"><span class="ctag">Deep RL</span><span class="ctag">MADDPG</span><span class="ctag">Multi-Agent</span><span class="ctag">PyTorch</span><span class="ctag">OpenAI Gym</span><span class="ctag">Swarm AI</span></div>
-          <div class="cfoot"><span class="cdate">Updated 3 minutes ago</span><div class="carrow">→</div></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
         </div>
       </a>
 
-      <!-- Facial Aging -->
-      <a href="https://github.com/Moulya-Reddy/Facial_Aging_Using_SAM" target="_blank" class="proj-card fi">
-        <div class="pbg bg-face"></div>
-        <div class="ci">
-          <div class="ct"><div class="cicon">👤</div><span class="lb lb-py">Python</span></div>
-          <h3 class="cn">Facial Aging Using SAM</h3>
-          <p class="cd">Region-aware facial aging using Meta's Segment Anything Model. Photorealistic transformations on segmented facial structures via generative models.</p>
-          <div class="ctags"><span class="ctag">SAM</span><span class="ctag">Computer Vision</span><span class="ctag">GenAI</span></div>
-          <div class="cfoot"><span class="cdate">Jul 28, 2025</span><div class="carrow">→</div></div>
-        </div>
-      </a>
-
-      <!-- Communication -->
+      <!-- 5. Communication -->
       <a href="https://github.com/Moulya-Reddy/Communication_Skills_Analyzer_AI_Tool" target="_blank" class="proj-card fi">
         <div class="pbg bg-nlp"></div>
         <div class="ci">
@@ -717,11 +757,11 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
           <h3 class="cn">Communication Skills Analyzer AI Tool</h3>
           <p class="cd">NLP-powered tool that analyzes filler words, tone, clarity and pacing — delivers AI feedback for public speaking improvement.</p>
           <div class="ctags"><span class="ctag">NLP</span><span class="ctag">Speech AI</span><span class="ctag">LLM</span></div>
-          <div class="cfoot"><span class="cdate">Nov 24, 2025</span><div class="carrow">→</div></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
         </div>
       </a>
 
-      <!-- GAN -->
+      <!-- 6. GAN -->
       <a href="https://github.com/Moulya-Reddy/Generative_Adversarial_Network_for_Image_Generation" target="_blank" class="proj-card fi">
         <div class="pbg bg-gan"></div>
         <div class="ci">
@@ -729,11 +769,11 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
           <h3 class="cn">Generative Adversarial Network for Image Generation</h3>
           <p class="cd">Custom GAN with spectral normalization and progressive training for high-fidelity synthetic image synthesis. Addresses mode collapse with advanced techniques.</p>
           <div class="ctags"><span class="ctag">GAN</span><span class="ctag">PyTorch</span><span class="ctag">Generative AI</span></div>
-          <div class="cfoot"><span class="cdate">Mar 4, 2025</span><div class="carrow">→</div></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
         </div>
       </a>
 
-      <!-- SimCLR -->
+      <!-- 7. SimCLR -->
       <a href="https://github.com/Moulya-Reddy/SimCLR_Self-Supervised_Learning" target="_blank" class="proj-card fi">
         <div class="pbg bg-ssl"></div>
         <div class="ci">
@@ -741,11 +781,11 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
           <h3 class="cn">SimCLR Self-Supervised Learning</h3>
           <p class="cd">Visual representation learning without labels via SimCLR contrastive framework. Augmentation pairs + NT-Xent loss for rich feature extraction.</p>
           <div class="ctags"><span class="ctag">SSL</span><span class="ctag">Contrastive</span><span class="ctag">Representations</span></div>
-          <div class="cfoot"><span class="cdate">Mar 4, 2025</span><div class="carrow">→</div></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
         </div>
       </a>
 
-      <!-- Book Rec -->
+      <!-- 8. Book Rec -->
       <a href="https://github.com/Moulya-Reddy/Book_Recommendation_System_Machine_Learning_Id_Vectorisation" target="_blank" class="proj-card fi">
         <div class="pbg bg-book"></div>
         <div class="ci">
@@ -753,11 +793,11 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
           <h3 class="cn">Book Recommendation System — ID Vectorization</h3>
           <p class="cd">Hybrid recommender engine using ID vectorization and embedding-based similarity search for personalized book suggestions.</p>
           <div class="ctags"><span class="ctag">Recommender</span><span class="ctag">Embeddings</span><span class="ctag">Sklearn</span></div>
-          <div class="cfoot"><span class="cdate">Jan 13, 2025</span><div class="carrow">→</div></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
         </div>
       </a>
 
-      <!-- Career -->
+      <!-- 9. Career -->
       <a href="https://github.com/Moulya-Reddy/Career_Prediction_Machine_Learning_Random_Forest" target="_blank" class="proj-card fi">
         <div class="pbg bg-career"></div>
         <div class="ci">
@@ -765,11 +805,11 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
           <h3 class="cn">Career Prediction — Random Forest</h3>
           <p class="cd">ML classification model predicting career trajectories from academic and behavioral features. Ensemble Random Forest with SHAP-based feature explainability.</p>
           <div class="ctags"><span class="ctag">Random Forest</span><span class="ctag">Classification</span><span class="ctag">SHAP</span></div>
-          <div class="cfoot"><span class="cdate">Jan 13, 2025</span><div class="carrow">→</div></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
         </div>
       </a>
 
-      <!-- Tableau -->
+      <!-- 10. Tableau -->
       <a href="https://github.com/Moulya-Reddy/Tableau_Employee_Data_Analysis_Project" target="_blank" class="proj-card fi">
         <div class="pbg bg-tableau"></div>
         <div class="ci">
@@ -777,7 +817,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
           <h3 class="cn">Tableau Employee Data Analysis</h3>
           <p class="cd">Interactive workforce analytics dashboard with KPI tracking, attrition patterns, and departmental performance visualization with drill-downs.</p>
           <div class="ctags"><span class="ctag">Tableau</span><span class="ctag">Analytics</span><span class="ctag">Data Viz</span></div>
-          <div class="cfoot"><span class="cdate">Apr 9, 2025</span><div class="carrow">→</div></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
         </div>
       </a>
 
@@ -1114,11 +1154,11 @@ I'm <strong>Moulya Reddy Kandhala</strong>, a <span class="hlc">B.Tech graduate 
 </p>
 
 <p>
-My primary interests include <strong>Deep Reinforcement Learning</strong>, <strong>Computer Vision</strong>, <strong>Generative AI</strong>, <strong>Self-Supervised Learning</strong>, and <strong>Large Language Models</strong>. I enjoy developing scalable AI solutions that bridge research and real-world applications.
+My primary interests include <strong>Agentic AI</strong>, <strong>Retrieval-Augmented Generation (RAG)</strong>, <strong>Deep Reinforcement Learning</strong>, <strong>Computer Vision</strong>, <strong>Generative AI</strong>, and <strong>Self-Supervised Learning</strong>. I enjoy developing scalable AI solutions that bridge research and real-world applications, and I like contributing to open-source along the way.
 </p>
 
 <p>
-I have built projects involving <strong>Multi-Agent Drone Coordination</strong>, <strong>StyleGAN2-ADA based Facial Age Manipulation</strong>, <strong>SimCLR Self-Supervised Learning</strong>, and AI-powered communication analysis systems. My research has resulted in a <span class="hlp">peer-reviewed journal publication</span> in Computer Vision and Generative AI.
+I have built projects involving <strong>Multi-Agent Drone Coordination</strong>, <strong>StyleGAN2-ADA based Facial Age Manipulation</strong>, <strong>SimCLR Self-Supervised Learning</strong>, a <strong>RAG + RL NBA strategy assistant (RivalIQ)</strong>, a from-scratch <strong>ReAct tool-using agent</strong>, and AI-powered communication analysis systems. My research has resulted in a <span class="hlp">peer-reviewed journal publication</span> in Computer Vision and Generative AI.
 </p>
 
 <p>
@@ -1132,9 +1172,9 @@ Currently seeking opportunities in <span class="hlp">AI/ML Research, Deep Learni
         <div class="ir"><span class="ik">degree</span><span class="iv">"B.Tech AIML"</span></div>
 <div class="ir"><span class="ik">status</span><span class="iv g">"Graduate"</span></div>
 <div class="ir"><span class="ik">publication</span><span class="iv">1</span></div>
-<div class="ir"><span class="ik">expertise</span><span class="iv p">"DRL, GenAI, CV, LLM"</span></div>
+<div class="ir"><span class="ik">expertise</span><span class="iv p">"DRL, GenAI, CV, RAG, LLM Agents"</span></div>
 <div class="ir"><span class="ik">languages</span><span class="iv">"Python, Java, C, JS"</span></div>
-<div class="ir"><span class="ik">repos</span><span class="iv">13</span></div>
+<div class="ir"><span class="ik">repos</span><span class="iv">15</span></div>
 <div class="ir"><span class="ik">open_to_work</span><span class="iv g">true</span></div>
       </div>
     </div>
@@ -1147,8 +1187,8 @@ Currently seeking opportunities in <span class="hlp">AI/ML Research, Deep Learni
     <div class="sec-head fi"><span class="sec-n">05</span><h2 class="sec-t rainbow">Skills</h2><div class="sec-l"></div></div>
     <div class="skills-wrap">
       <div>
-        <div class="sg fi"><div class="sgl">Core AI / ML</div><div class="spills"><span class="sp">Deep Learning</span><span class="sp">Reinforcement Learning</span><span class="sp">Computer Vision</span><span class="sp">NLP</span><span class="sp">Self-Supervised Learning</span><span class="sp">GANs</span><span class="sp">Transformers</span><span class="sp">Multi-Agent Systems</span></div></div>
-        <div class="sg fi" style="transition-delay:0.1s"><div class="sgl">Frameworks</div><div class="spills"><span class="sp">PyTorch</span><span class="sp">TensorFlow</span><span class="sp">Scikit-Learn</span><span class="sp">OpenCV</span><span class="sp">Hugging Face</span><span class="sp">Gymnasium</span><span class="sp">Pandas</span><span class="sp">NumPy</span></div></div>
+        <div class="sg fi"><div class="sgl">Core AI / ML</div><div class="spills"><span class="sp">Deep Learning</span><span class="sp">Reinforcement Learning</span><span class="sp">Computer Vision</span><span class="sp">NLP</span><span class="sp">Self-Supervised Learning</span><span class="sp">GANs</span><span class="sp">Transformers</span><span class="sp">Multi-Agent Systems</span><span class="sp">Agentic AI</span><span class="sp">ReAct</span><span class="sp">RAG</span><span class="sp">Tool Calling</span><span class="sp">Prompt Engineering</span></div></div>
+        <div class="sg fi" style="transition-delay:0.1s"><div class="sgl">Frameworks</div><div class="spills"><span class="sp">PyTorch</span><span class="sp">TensorFlow</span><span class="sp">Scikit-Learn</span><span class="sp">OpenCV</span><span class="sp">Hugging Face</span><span class="sp">Gymnasium</span><span class="sp">Pandas</span><span class="sp">NumPy</span><span class="sp">Streamlit</span><span class="sp">Groq API</span><span class="sp">Anthropic Claude API</span></div></div>
         <div class="sg fi" style="transition-delay:0.2s"><div class="sgl">Languages & Tools</div><div class="spills"><span class="sp">Python</span><span class="sp">JavaScript</span><span class="sp">Dart / Flutter</span><span class="sp">C</span><span class="sp">Tableau</span><span class="sp">Git</span></div></div>
       </div>
       <div class="terminal fi" style="transition-delay:0.15s">
@@ -1166,10 +1206,10 @@ Currently seeking opportunities in <span class="hlp">AI/ML Research, Deep Learni
 <div><span class="to">✓ Loaded — B.Tech AIML Graduate</span></div>
 <br>
 <div><span class="tp">>>> </span><span class="tc">me<span class="ta">.</span>expertise</span></div>
-<div><span class="to">[<span class="ts">'DRL'</span>, <span class="ts">'GenAI'</span>, <span class="ts">'CV'</span>, <span class="ts">'NLP'</span>]</span></div>
+<div><span class="to">[<span class="ts">'DRL'</span>, <span class="ts">'GenAI'</span>, <span class="ts">'CV'</span>, <span class="ts">'NLP'</span>, <span class="ts">'RAG'</span>]</span></div>
 <br>
 <div><span class="tp">>>> </span><span class="tc">me<span class="ta">.</span>building_now</span></div>
-<div><span class="ta">"Multi-Agent Drone DRL"</span></div>
+<div><span class="ta">"RivalIQ — RAG + RL NBA Assistant"</span></div>
 <br>
 <div><span class="tp">>>> </span><span class="tc">me<span class="ta">.</span>github</span></div>
 <div><span class="ta">"github.com/Moulya-Reddy"</span></div>
@@ -1262,6 +1302,7 @@ const phrases = [
   'Computing attention weights...',
   'Backpropagating gradients...',
   'Deploying autonomous agents...',
+  'Retrieving grounded context...',
 ];
 let pIdx=0, cIdx=0, deleting=false;
 function typeWrite() {
@@ -1496,9 +1537,10 @@ function counter(el,to,sfx=''){
 }
 const cobs=new IntersectionObserver(entries=>{
   if(entries[0].isIntersecting){
-    counter(document.getElementById('c1'),13);
-    counter(document.getElementById('c2'),8);
+    counter(document.getElementById('c1'),15);
+    counter(document.getElementById('c2'),10);
     counter(document.getElementById('c3'),1);
+    counter(document.getElementById('c4'),10);
     cobs.disconnect();
   }
 },{threshold:0.5});
