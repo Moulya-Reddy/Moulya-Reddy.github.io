@@ -414,6 +414,7 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 .proj-card:has(.bg-tableau):hover { box-shadow: 0 0 40px rgba(255,107,53,0.12), 0 8px 30px rgba(0,0,0,0.4); }
 .proj-card:has(.bg-rival):hover { box-shadow: 0 0 40px rgba(255,107,53,0.14), 0 8px 30px rgba(0,0,0,0.4); }
 .proj-card:has(.bg-agent):hover { box-shadow: 0 0 40px rgba(0,255,163,0.14), 0 8px 30px rgba(0,0,0,0.4); }
+.proj-card:has(.bg-policy):hover { box-shadow: 0 0 40px rgba(139,92,246,0.14), 0 8px 30px rgba(0,0,0,0.4); }
 
 /* Project background layers */
 .pbg { position:absolute; inset:0; opacity:0; transition:opacity 0.5s; z-index:0; }
@@ -454,6 +455,9 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 .bg-agent { background:radial-gradient(ellipse 65% 65% at 25% 30%,rgba(0,255,163,0.09),transparent 65%),radial-gradient(ellipse 40% 40% at 85% 75%,rgba(0,229,255,0.06),transparent 60%); }
 .bg-agent::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(0,255,163,0.05) 1px,transparent 1px); background-size:22px 22px; }
 
+.bg-policy { background:radial-gradient(ellipse 60% 60% at 30% 25%,rgba(139,92,246,0.09),transparent 62%),radial-gradient(ellipse 45% 45% at 80% 80%,rgba(0,229,255,0.06),transparent 60%); }
+.bg-policy::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(0deg,rgba(139,92,246,0.03) 0px,rgba(139,92,246,0.03) 1px,transparent 1px,transparent 14px); }
+
 .ci { position:relative; z-index:3; padding:1.8rem; height:100%; display:flex; flex-direction:column; }
 .ct { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.3rem; }
 .cicon { width:42px;height:42px; border-radius:7px; display:flex; align-items:center; justify-content:center; font-size:1.3rem; border:1px solid var(--border2); background:var(--card2); transition:all 0.3s; }
@@ -479,6 +483,30 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 .proj-card:hover .carrow { background:var(--cyan); border-color:var(--cyan); color:#000; transform:translateX(2px); }
 .feat-badge { display:inline-flex; align-items:center; gap:0.4rem; font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--purple); border:1px solid rgba(139,92,246,0.3); padding:0.18rem 0.6rem; border-radius:3px; background:rgba(139,92,246,0.08); margin-bottom:0.9rem; letter-spacing:0.1em; text-transform:uppercase; }
 .fd { width:5px;height:5px; border-radius:50%; background:var(--purple); animation:sb 1.5s infinite; }
+
+/* EXPERIENCE & EDUCATION */
+#journey { padding:8rem 0 5rem; }
+.journey-layout { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start; }
+.jcol-title { font-family:'Orbitron',monospace; font-size:0.68rem; letter-spacing:0.2em; color:var(--cyan); text-transform:uppercase; margin-bottom:1.5rem; display:flex; align-items:center; gap:0.8rem; }
+.jcol-title::after { content:''; flex:1; height:1px; background:var(--border2); }
+
+.tline { position:relative; padding-left:1.7rem; }
+.tline::before { content:''; position:absolute; left:5px; top:6px; bottom:6px; width:1px; background:linear-gradient(180deg,var(--cyan),var(--purple),transparent); }
+.titem { position:relative; margin-bottom:1.6rem; }
+.titem:last-child { margin-bottom:0; }
+.titem::before { content:''; position:absolute; left:-1.7rem; top:6px; width:11px; height:11px; border-radius:50%; background:var(--bg); border:1.5px solid var(--cyan); box-shadow:0 0 10px rgba(0,229,255,0.35); }
+.titem.current::before { background:var(--green); border-color:var(--green); box-shadow:0 0 12px var(--green); animation:sb 2s ease-in-out infinite; }
+.titem-card { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:1.1rem 1.3rem; transition:all 0.35s cubic-bezier(0.23,1,0.32,1); }
+.titem-card:hover { border-color:var(--border2); background:var(--card2); transform:translateX(4px); }
+.titem-role { font-family:'Outfit',sans-serif; font-size:0.95rem; font-weight:700; color:var(--text); line-height:1.3; margin-bottom:0.3rem; }
+.titem-org { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--cyan); letter-spacing:0.04em; margin-bottom:0.45rem; }
+.titem-meta { display:flex; flex-wrap:wrap; align-items:center; gap:0.5rem; margin-bottom:0.6rem; }
+.titem-date { font-family:'JetBrains Mono',monospace; font-size:0.62rem; color:var(--muted); border:1px solid var(--border); padding:0.13rem 0.5rem; border-radius:2px; }
+.titem-live { font-family:'JetBrains Mono',monospace; font-size:0.58rem; color:var(--green); border:1px solid rgba(0,255,163,0.25); background:rgba(0,255,163,0.06); padding:0.13rem 0.5rem; border-radius:2px; letter-spacing:0.08em; text-transform:uppercase; }
+.titem-grade { font-family:'Orbitron',monospace; font-size:0.62rem; color:var(--yellow); border:1px solid rgba(255,214,10,0.25); background:rgba(255,214,10,0.06); padding:0.15rem 0.55rem; border-radius:2px; }
+.titem-desc { font-family:'JetBrains Mono',monospace; font-size:0.68rem; color:var(--muted); line-height:1.8; }
+
+@media(max-width:1050px) { .journey-layout { grid-template-columns:1fr; } }
 
 /* ACHIEVEMENTS */
 #achievements { padding:8rem 0 5rem; }
@@ -604,6 +632,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
     <ul>
       <li><a href="#projects">projects</a></li>
       <li><a href="#publications">publications</a></li>
+      <li><a href="#journey">experience</a></li>
       <li><a href="#achievements">achievements</a></li>
       <li><a href="#about">about</a></li>
       <li><a href="https://github.com/Moulya-Reddy" target="_blank" class="nav-gh">⌥ GitHub</a></li>
@@ -615,10 +644,10 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
 <div class="status-bar">
   <div style="display:flex;align-items:center;gap:0.5rem"><div class="sdot"></div><span>system online</span></div>
   <span class="ssep">|</span>
-  <span>B.Tech Graduate — AI & Machine Learning</span>
+  <span>System Engineer @ TCS — AI &amp; ML</span>
   <span class="ssep">|</span>
-  <span>15 repos public</span>
-  <div class="sticker"><span class="sticker-in">DRL · GANs · SimCLR · SAM · NLP · Computer Vision · Reinforcement Learning · Multi-Agent Systems · RAG · LLM Agents · PyTorch · Google GenAI Certified · Deloitte Forage · TCS CodeVita #4207 ···</span></div>
+  <span>16 repos public</span>
+  <div class="sticker"><span class="sticker-in">DRL · GANs · SimCLR · SAM · NLP · Computer Vision · Reinforcement Learning · Multi-Agent Systems · RAG · LangGraph · LLM Agents · PyTorch · Google GenAI Certified · Deloitte Forage · TCS CodeVita #4207 ···</span></div>
 </div>
 
 <!-- HERO -->
@@ -629,7 +658,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
   <div class="container">
     <div class="fi">
       <div class="hero-eyebrow">
-        <div class="ey-badge">▸ AIML Engineer</div>
+        <div class="ey-badge">▸ System Engineer @ TCS · AIML</div>
         <div class="ey-line"></div>
       </div>
       <div class="hero-name">Moulya Reddy Kandhala</div>
@@ -668,12 +697,12 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
       </div>
       <div class="hero-stats">
     <div class="hst">
-        <span class="hst-n" id="c1" style="color:var(--cyan)">15</span>
+        <span class="hst-n" id="c1" style="color:var(--cyan)">16</span>
         <span class="hst-l">Repos</span>
     </div>
 
     <div class="hst">
-        <span class="hst-n" id="c2" style="color:var(--purple)">10</span>
+        <span class="hst-n" id="c2" style="color:var(--purple)">11</span>
         <span class="hst-l">Projects</span>
     </div>
 
@@ -697,14 +726,13 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
     <div class="sec-head fi"><span class="sec-n">01</span><h2 class="sec-t rainbow">Projects</h2><div class="sec-l"></div></div>
     <div class="proj-grid">
 
-      <!-- 1. RivalIQ — FEATURED -->
-      <a href="https://github.com/Moulya-Reddy/RivalIQ-AI_Powered_NBA_Strategy_Assistant" target="_blank" class="proj-card feat fi">
+      <!-- 1. RivalIQ -->
+      <a href="https://github.com/Moulya-Reddy/RivalIQ-AI_Powered_NBA_Strategy_Assistant" target="_blank" class="proj-card fi">
         <div class="pbg bg-rival"></div>
         <div class="ci">
-          <div class="feat-badge"><div class="fd"></div>Featured Project</div>
           <div class="ct"><div class="cicon">🏀</div><span class="lb lb-py">Python</span></div>
           <h3 class="cn">RivalIQ — NBA Strategy Assistant</h3>
-          <p class="cd">Full-stack applied-AI system combining RAG, LLM generation, and reinforcement learning on live NBA data. A from-scratch analytics layer derives team stats from raw games, a retrieval-grounded generator produces faithfulness-checked scouting reports, and a tabular Q-learning agent discovers real clutch-time strategies — stalling when ahead, fouling when behind — purely from reward signal.</p>
+          <p class="cd">Applied-AI system combining RAG, LLM generation, and reinforcement learning on live NBA data. Generates faithfulness-checked scouting reports, while a tabular Q-learning agent discovers real clutch-time strategies — stalling when ahead, fouling when behind — purely from reward signal.</p>
           <div class="ctags"><span class="ctag">RAG</span><span class="ctag">LLM Generation</span><span class="ctag">Q-Learning</span><span class="ctag">Streamlit</span><span class="ctag">Groq</span><span class="ctag">Eval Pipelines</span></div>
           <div class="ctags" style="margin-bottom:0.5rem;"><span class="ctag" style="color:var(--orange);border-color:rgba(255,107,53,0.25)">4 AI modules</span><span class="ctag" style="color:var(--orange);border-color:rgba(255,107,53,0.25)">10+ team metrics</span><span class="ctag" style="color:var(--orange);border-color:rgba(255,107,53,0.25)">74% vs 40% baseline win-rate</span></div>
           <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
@@ -724,7 +752,20 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 3. Facial Aging -->
+      <!-- 3. Acme Policy Copilot -->
+      <a href="https://github.com/Moulya-Reddy/Acme_Policy_Copilot" target="_blank" class="proj-card fi">
+        <div class="pbg bg-policy"></div>
+        <div class="ci">
+          <div class="ct"><div class="cicon">🗂️</div><span class="lb lb-py">Python</span></div>
+          <h3 class="cn">Acme Policy Copilot — Enterprise HR &amp; IT Assistant</h3>
+          <p class="cd">RAG and agentic tool-calling assistant that answers employee questions from company HR and IT policy documents, checks leave balances, and files IT tickets — orchestrated through a LangGraph workflow over a local Chroma vector index, with native schema-validated tool calling and a live reasoning trace.</p>
+          <div class="ctags"><span class="ctag">LangGraph</span><span class="ctag">LangChain</span><span class="ctag">Chroma</span><span class="ctag">RAG</span><span class="ctag">Ollama</span><span class="ctag">Streamlit</span></div>
+          <div class="ctags" style="margin-bottom:0.5rem;"><span class="ctag" style="color:var(--purple);border-color:rgba(139,92,246,0.25)">4 agent tools</span><span class="ctag" style="color:var(--purple);border-color:rgba(139,92,246,0.25)">Faithfulness eval suite</span><span class="ctag" style="color:var(--purple);border-color:rgba(139,92,246,0.25)">Runs fully local</span></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
+        </div>
+      </a>
+
+      <!-- 4. Facial Aging -->
       <a href="https://github.com/Moulya-Reddy/Facial_Aging_Using_SAM" target="_blank" class="proj-card fi">
         <div class="pbg bg-face"></div>
         <div class="ci">
@@ -736,11 +777,10 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 4. DRONE — FEATURED -->
-      <a href="https://github.com/Moulya-Reddy/Multi-Agent_Drone_Coordination_using_Deep_Reinforcement_Learning" target="_blank" class="proj-card feat fi">
+      <!-- 5. Drone -->
+      <a href="https://github.com/Moulya-Reddy/Multi-Agent_Drone_Coordination_using_Deep_Reinforcement_Learning" target="_blank" class="proj-card fi">
         <div class="pbg bg-drone"></div>
         <div class="ci">
-          <div class="feat-badge"><div class="fd"></div>Featured Project</div>
           <div class="ct"><div class="cicon">🤖</div><span class="lb lb-py">Python</span></div>
           <h3 class="cn">Multi-Agent Drone Coordination using Deep Reinforcement Learning</h3>
           <p class="cd">Autonomous drone swarms that learn cooperative flight, collision avoidance, and mission-critical task allocation purely through reward-based learning. Implements MADDPG/PPO in custom 3D simulation environments — emergent intelligence at its finest.</p>
@@ -749,7 +789,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 5. Communication -->
+      <!-- 6. Communication -->
       <a href="https://github.com/Moulya-Reddy/Communication_Skills_Analyzer_AI_Tool" target="_blank" class="proj-card fi">
         <div class="pbg bg-nlp"></div>
         <div class="ci">
@@ -761,7 +801,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 6. GAN -->
+      <!-- 7. GAN -->
       <a href="https://github.com/Moulya-Reddy/Generative_Adversarial_Network_for_Image_Generation" target="_blank" class="proj-card fi">
         <div class="pbg bg-gan"></div>
         <div class="ci">
@@ -773,7 +813,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 7. SimCLR -->
+      <!-- 8. SimCLR -->
       <a href="https://github.com/Moulya-Reddy/SimCLR_Self-Supervised_Learning" target="_blank" class="proj-card fi">
         <div class="pbg bg-ssl"></div>
         <div class="ci">
@@ -785,7 +825,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 8. Book Rec -->
+      <!-- 9. Book Rec -->
       <a href="https://github.com/Moulya-Reddy/Book_Recommendation_System_Machine_Learning_Id_Vectorisation" target="_blank" class="proj-card fi">
         <div class="pbg bg-book"></div>
         <div class="ci">
@@ -797,7 +837,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 9. Career -->
+      <!-- 10. Career -->
       <a href="https://github.com/Moulya-Reddy/Career_Prediction_Machine_Learning_Random_Forest" target="_blank" class="proj-card fi">
         <div class="pbg bg-career"></div>
         <div class="ci">
@@ -809,7 +849,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 10. Tableau -->
+      <!-- 11. Tableau -->
       <a href="https://github.com/Moulya-Reddy/Tableau_Employee_Data_Analysis_Project" target="_blank" class="proj-card fi">
         <div class="pbg bg-tableau"></div>
         <div class="ci">
@@ -894,9 +934,83 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
   </div>
 </section>
 <!-- ACHIEVEMENTS & CERTIFICATIONS -->
+<!-- EXPERIENCE & EDUCATION -->
+<section id="journey">
+  <div class="container">
+    <div class="sec-head fi"><span class="sec-n">03</span><h2 class="sec-t rainbow">Experience &amp; Education</h2><div class="sec-l"></div></div>
+
+    <div class="journey-layout">
+
+      <!-- LEFT: Experience -->
+      <div>
+        <div class="jcol-title">Experience</div>
+        <div class="tline fi">
+
+          <div class="titem current">
+            <div class="titem-card">
+              <div class="titem-role">System Engineer</div>
+              <div class="titem-org">Tata Consultancy Services (TCS)</div>
+              <div class="titem-meta">
+                <span class="titem-date">Aug 2026 — Present</span>
+                <span class="titem-live">Current</span>
+              </div>
+              <div class="titem-desc">Working as a System Engineer at TCS, applying software engineering and AI/ML skills to enterprise-scale systems.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- RIGHT: Education -->
+      <div>
+        <div class="jcol-title">Education</div>
+        <div class="tline fi" style="transition-delay:0.08s">
+
+          <div class="titem">
+            <div class="titem-card">
+              <div class="titem-role">B.Tech — Computer Science (AI &amp; ML)</div>
+              <div class="titem-org">Sreyas Institute of Engineering &amp; Technology</div>
+              <div class="titem-meta">
+                <span class="titem-date">2022 — 2026</span>
+                <span class="titem-grade">CGPA 9.24</span>
+              </div>
+              <div class="titem-desc">Graduated first in the AI &amp; ML program. Coursework across deep learning, reinforcement learning, computer vision, and NLP, alongside a peer-reviewed journal publication.</div>
+            </div>
+          </div>
+
+          <div class="titem">
+            <div class="titem-card">
+              <div class="titem-role">Intermediate Education — MPC</div>
+              <div class="titem-org">Narayana Junior College, India</div>
+              <div class="titem-meta">
+                <span class="titem-date">2020 — 2022</span>
+                <span class="titem-grade">94.7%</span>
+              </div>
+              <div class="titem-desc">Mathematics, Physics and Chemistry stream.</div>
+            </div>
+          </div>
+
+          <div class="titem">
+            <div class="titem-card">
+              <div class="titem-role">Schooling — ICSE Board</div>
+              <div class="titem-org">St. Joseph's School, A.G. Palace</div>
+              <div class="titem-meta">
+                <span class="titem-date">2020</span>
+                <span class="titem-grade">88.5%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
 <section id="achievements">
   <div class="container">
-    <div class="sec-head fi"><span class="sec-n">03</span><h2 class="sec-t rainbow">Achievements & Certifications</h2><div class="sec-l"></div></div>
+    <div class="sec-head fi"><span class="sec-n">04</span><h2 class="sec-t rainbow">Achievements & Certifications</h2><div class="sec-l"></div></div>
 
     <div class="ach-layout">
       <!-- LEFT: Internships + Competitions -->
@@ -953,6 +1067,14 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
 
         <div class="ach-col-title">Competitions & Achievements</div>
         <div class="comp-list fi" style="transition-delay:0.1s">
+
+          <a href="https://raw.githubusercontent.com/Moulya-Reddy/Certifications/main/Topper%20Certificate.pdf" target="_blank" class="comp-card" style="text-decoration:none;color:inherit;border-color:rgba(255,214,10,0.3);">
+            <div class="comp-rank">🥇 First Topper</div>
+            <div class="comp-info">
+              <div class="comp-name">Outstanding Academic Achievement</div>
+              <div class="comp-sub">Sreyas Institute of Engineering &amp; Technology · Mar 2026 — awarded for consistent academic excellence across the B.Tech (AI &amp; ML) program</div>
+            </div>
+          </a>
 
           <div class="comp-card">
             <div class="comp-rank"># 4207 Global</div>
@@ -1094,22 +1216,6 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         <div style="margin-top:1.8rem;">
           <div class="ach-col-title" style="margin-bottom:1rem;">Other Credentials</div>
           <div class="cert-grid fi" style="transition-delay:0.15s">
-              <a href="https://raw.githubusercontent.com/Moulya-Reddy/Certifications/main/Topper%20Certificate.pdf"
-                 target="_blank"
-                 class="cert-card highlight"
-                 style="text-decoration:none;color:inherit;">
-
-                  <div class="cert-icon">🥇</div>
-                    <div class="cert-name">
-                      First Topper – Outstanding Academic Achievement
-                    </div>
-                   <div class="cert-issuer">
-                      Sreyas Institute of Engineering and Technology
-                   </div>
-                  <div class="cert-badge">
-                    CGPA 9.35 | First Rank
-                   </div>
-                </a>
             <div class="cert-card highlight">
               <div class="cert-icon">🏆</div>
               <div class="cert-name">Generative AI Certification</div>
@@ -1145,7 +1251,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
 <!-- ABOUT -->
 <section id="about">
   <div class="container">
-    <div class="sec-head fi"><span class="sec-n">04</span><h2 class="sec-t rainbow">About</h2><div class="sec-l"></div></div>
+    <div class="sec-head fi"><span class="sec-n">05</span><h2 class="sec-t rainbow">About</h2><div class="sec-l"></div></div>
     <div class="about-layout">
       <div class="atext fi">
 
@@ -1158,11 +1264,11 @@ My primary interests include <strong>Agentic AI</strong>, <strong>Retrieval-Augm
 </p>
 
 <p>
-I have built projects involving <strong>Multi-Agent Drone Coordination</strong>, <strong>StyleGAN2-ADA based Facial Age Manipulation</strong>, <strong>SimCLR Self-Supervised Learning</strong>, a <strong>RAG + RL NBA strategy assistant (RivalIQ)</strong>, a from-scratch <strong>ReAct tool-using agent</strong>, and AI-powered communication analysis systems. My research has resulted in a <span class="hlp">peer-reviewed journal publication</span> in Computer Vision and Generative AI.
+I have built projects involving <strong>Multi-Agent Drone Coordination</strong>, <strong>StyleGAN2-ADA based Facial Age Manipulation</strong>, <strong>SimCLR Self-Supervised Learning</strong>, a <strong>RAG + RL NBA strategy assistant (RivalIQ)</strong>, a from-scratch <strong>ReAct tool-using agent</strong>, a <strong>LangGraph-orchestrated enterprise policy copilot</strong>, and AI-powered communication analysis systems. My research has resulted in a <span class="hlp">peer-reviewed journal publication</span> in Computer Vision and Generative AI.
 </p>
 
 <p>
-Currently seeking opportunities in <span class="hlp">AI/ML Research, Deep Learning, Computer Vision, Generative AI, and Applied Machine Learning</span> while preparing for graduate research and future Ph.D. studies.
+I currently work as a <strong>System Engineer at Tata Consultancy Services</strong>, while continuing to build and research in <span class="hlp">Agentic AI, RAG, Deep Learning, Computer Vision, and Generative AI</span> — and preparing for graduate research and future Ph.D. studies.
 </p>
 
 </div>
@@ -1170,12 +1276,12 @@ Currently seeking opportunities in <span class="hlp">AI/ML Research, Deep Learni
         <div class="ip-head"><span style="color:var(--cyan)">▸</span> developer_profile.json</div>
         <div class="ir"><span class="ik">name</span><span class="iv">"Moulya Reddy Kandhala"</span></div>
         <div class="ir"><span class="ik">degree</span><span class="iv">"B.Tech AIML"</span></div>
-<div class="ir"><span class="ik">status</span><span class="iv g">"Graduate"</span></div>
+<div class="ir"><span class="ik">role</span><span class="iv g">"System Engineer @ TCS"</span></div>
 <div class="ir"><span class="ik">publication</span><span class="iv">1</span></div>
 <div class="ir"><span class="ik">expertise</span><span class="iv p">"DRL, GenAI, CV, RAG, LLM Agents"</span></div>
 <div class="ir"><span class="ik">languages</span><span class="iv">"Python, Java, C, JS"</span></div>
-<div class="ir"><span class="ik">repos</span><span class="iv">15</span></div>
-<div class="ir"><span class="ik">open_to_work</span><span class="iv g">true</span></div>
+<div class="ir"><span class="ik">repos</span><span class="iv">16</span></div>
+<div class="ir"><span class="ik">cgpa</span><span class="iv">9.24</span></div>
       </div>
     </div>
   </div>
@@ -1184,11 +1290,11 @@ Currently seeking opportunities in <span class="hlp">AI/ML Research, Deep Learni
 <!-- SKILLS -->
 <section id="skills">
   <div class="container">
-    <div class="sec-head fi"><span class="sec-n">05</span><h2 class="sec-t rainbow">Skills</h2><div class="sec-l"></div></div>
+    <div class="sec-head fi"><span class="sec-n">06</span><h2 class="sec-t rainbow">Skills</h2><div class="sec-l"></div></div>
     <div class="skills-wrap">
       <div>
         <div class="sg fi"><div class="sgl">Core AI / ML</div><div class="spills"><span class="sp">Deep Learning</span><span class="sp">Reinforcement Learning</span><span class="sp">Computer Vision</span><span class="sp">NLP</span><span class="sp">Self-Supervised Learning</span><span class="sp">GANs</span><span class="sp">Transformers</span><span class="sp">Multi-Agent Systems</span><span class="sp">Agentic AI</span><span class="sp">ReAct</span><span class="sp">RAG</span><span class="sp">Tool Calling</span><span class="sp">Prompt Engineering</span></div></div>
-        <div class="sg fi" style="transition-delay:0.1s"><div class="sgl">Frameworks</div><div class="spills"><span class="sp">PyTorch</span><span class="sp">TensorFlow</span><span class="sp">Scikit-Learn</span><span class="sp">OpenCV</span><span class="sp">Hugging Face</span><span class="sp">Gymnasium</span><span class="sp">Pandas</span><span class="sp">NumPy</span><span class="sp">Streamlit</span><span class="sp">Groq API</span><span class="sp">Anthropic Claude API</span></div></div>
+        <div class="sg fi" style="transition-delay:0.1s"><div class="sgl">Frameworks</div><div class="spills"><span class="sp">PyTorch</span><span class="sp">TensorFlow</span><span class="sp">Scikit-Learn</span><span class="sp">OpenCV</span><span class="sp">Hugging Face</span><span class="sp">Gymnasium</span><span class="sp">Pandas</span><span class="sp">NumPy</span><span class="sp">Streamlit</span><span class="sp">LangChain</span><span class="sp">LangGraph</span><span class="sp">Chroma</span><span class="sp">Ollama</span><span class="sp">Groq API</span><span class="sp">Anthropic Claude API</span></div></div>
         <div class="sg fi" style="transition-delay:0.2s"><div class="sgl">Languages & Tools</div><div class="spills"><span class="sp">Python</span><span class="sp">JavaScript</span><span class="sp">Dart / Flutter</span><span class="sp">C</span><span class="sp">Tableau</span><span class="sp">Git</span></div></div>
       </div>
       <div class="terminal fi" style="transition-delay:0.15s">
@@ -1214,8 +1320,8 @@ Currently seeking opportunities in <span class="hlp">AI/ML Research, Deep Learni
 <div><span class="tp">>>> </span><span class="tc">me<span class="ta">.</span>github</span></div>
 <div><span class="ta">"github.com/Moulya-Reddy"</span></div>
 <br>
-<div><span class="tp">>>> </span><span class="tc">me<span class="ta">.</span>open_to_work</span></div>
-<div><span class="tv">True</span></div>
+<div><span class="tp">>>> </span><span class="tc">me<span class="ta">.</span>role</span></div>
+<div><span class="ta">"System Engineer @ TCS"</span></div>
 <br>
 <div><span class="tp">>>> </span><span class="cursor2"></span></div>
         </div>
@@ -1537,8 +1643,8 @@ function counter(el,to,sfx=''){
 }
 const cobs=new IntersectionObserver(entries=>{
   if(entries[0].isIntersecting){
-    counter(document.getElementById('c1'),15);
-    counter(document.getElementById('c2'),10);
+    counter(document.getElementById('c1'),16);
+    counter(document.getElementById('c2'),11);
     counter(document.getElementById('c3'),1);
     counter(document.getElementById('c4'),10);
     cobs.disconnect();
