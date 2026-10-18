@@ -415,6 +415,7 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 .proj-card:has(.bg-rival):hover { box-shadow: 0 0 40px rgba(255,107,53,0.14), 0 8px 30px rgba(0,0,0,0.4); }
 .proj-card:has(.bg-agent):hover { box-shadow: 0 0 40px rgba(0,255,163,0.14), 0 8px 30px rgba(0,0,0,0.4); }
 .proj-card:has(.bg-policy):hover { box-shadow: 0 0 40px rgba(139,92,246,0.14), 0 8px 30px rgba(0,0,0,0.4); }
+.proj-card:has(.bg-doraemon):hover { box-shadow: 0 0 40px rgba(0,229,255,0.16), 0 8px 30px rgba(0,0,0,0.4); }
 
 /* Project background layers */
 .pbg { position:absolute; inset:0; opacity:0; transition:opacity 0.5s; z-index:0; }
@@ -457,6 +458,8 @@ nav a:hover { color:var(--cyan); border-color:var(--border2); background:var(--g
 
 .bg-policy { background:radial-gradient(ellipse 60% 60% at 30% 25%,rgba(139,92,246,0.09),transparent 62%),radial-gradient(ellipse 45% 45% at 80% 80%,rgba(0,229,255,0.06),transparent 60%); }
 .bg-policy::before { content:''; position:absolute; inset:0; background-image:repeating-linear-gradient(0deg,rgba(139,92,246,0.03) 0px,rgba(139,92,246,0.03) 1px,transparent 1px,transparent 14px); }
+.bg-doraemon { background:radial-gradient(ellipse 60% 60% at 78% 25%,rgba(0,229,255,0.12),transparent 62%),radial-gradient(ellipse 45% 45% at 18% 82%,rgba(139,92,246,0.09),transparent 62%); }
+.bg-doraemon::before { content:''; position:absolute; inset:0; background-image:radial-gradient(circle,rgba(0,229,255,0.06) 1px,transparent 1px); background-size:20px 20px; }
 
 .ci { position:relative; z-index:3; padding:1.8rem; height:100%; display:flex; flex-direction:column; }
 .ct { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:1.3rem; }
@@ -646,7 +649,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
   <span class="ssep">|</span>
   <span>System Engineer @ TCS — AI &amp; ML</span>
   <span class="ssep">|</span>
-  <span>16 repos public</span>
+  <span>17 repos public</span>
   <div class="sticker"><span class="sticker-in">DRL · GANs · SimCLR · SAM · NLP · Computer Vision · Reinforcement Learning · Multi-Agent Systems · RAG · LangGraph · LLM Agents · PyTorch · Google GenAI Certified · Deloitte Forage · TCS CodeVita #4207 ···</span></div>
 </div>
 
@@ -697,12 +700,12 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
       </div>
       <div class="hero-stats">
     <div class="hst">
-        <span class="hst-n" id="c1" style="color:var(--cyan)">16</span>
+        <span class="hst-n" id="c1" style="color:var(--cyan)">17</span>
         <span class="hst-l">Repos</span>
     </div>
 
     <div class="hst">
-        <span class="hst-n" id="c2" style="color:var(--purple)">11</span>
+        <span class="hst-n" id="c2" style="color:var(--purple)">12</span>
         <span class="hst-l">Projects</span>
     </div>
 
@@ -739,7 +742,19 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 2. Agentic Task Assistant -->
+      <!-- 3. Doraemon's Gadget Lab -->
+      <a href="https://github.com/Moulya-Reddy/Doraemon-s-Gadget-Lab" target="_blank" rel="noopener noreferrer" class="proj-card fi">
+        <div class="pbg bg-doraemon"></div>
+        <div class="ci">
+          <div class="ct"><div class="cicon">🧰</div><span class="lb lb-py">Python</span></div>
+          <h3 class="cn">Doraemon’s Gadget Lab</h3>
+          <p class="cd">An interactive AI application inspired by Doraemon’s gadgets. A Flask interface combines intelligent question routing and retrieval-augmented generation with optional language-model integrations, plus a miniature decoder-only Transformer implemented in PyTorch.</p>
+          <div class="ctags"><span class="ctag">Flask</span><span class="ctag">RAG</span><span class="ctag">PyTorch</span><span class="ctag">LLM Routing</span><span class="ctag">Ollama / Gemini</span></div>
+          <div class="cfoot" style="justify-content:flex-end;"><div class="carrow">→</div></div>
+        </div>
+      </a>
+
+      <!-- 4. Agentic Task Assistant -->
       <a href="https://github.com/Moulya-Reddy/Agentic_Task_Assistant" target="_blank" class="proj-card fi">
         <div class="pbg bg-agent"></div>
         <div class="ci">
@@ -752,7 +767,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 3. Acme Policy Copilot -->
+      <!-- 4. Acme Policy Copilot -->
       <a href="https://github.com/Moulya-Reddy/Acme_Policy_Copilot" target="_blank" class="proj-card fi">
         <div class="pbg bg-policy"></div>
         <div class="ci">
@@ -765,7 +780,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 4. Facial Aging -->
+      <!-- 5. Facial Aging -->
       <a href="https://github.com/Moulya-Reddy/Facial_Aging_Using_SAM" target="_blank" class="proj-card fi">
         <div class="pbg bg-face"></div>
         <div class="ci">
@@ -777,7 +792,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 5. Drone -->
+      <!-- 6. Drone -->
       <a href="https://github.com/Moulya-Reddy/Multi-Agent_Drone_Coordination_using_Deep_Reinforcement_Learning" target="_blank" class="proj-card fi">
         <div class="pbg bg-drone"></div>
         <div class="ci">
@@ -789,7 +804,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 6. Communication -->
+      <!-- 7. Communication -->
       <a href="https://github.com/Moulya-Reddy/Communication_Skills_Analyzer_AI_Tool" target="_blank" class="proj-card fi">
         <div class="pbg bg-nlp"></div>
         <div class="ci">
@@ -801,7 +816,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 7. GAN -->
+      <!-- 8. GAN -->
       <a href="https://github.com/Moulya-Reddy/Generative_Adversarial_Network_for_Image_Generation" target="_blank" class="proj-card fi">
         <div class="pbg bg-gan"></div>
         <div class="ci">
@@ -813,7 +828,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 8. SimCLR -->
+      <!-- 9. SimCLR -->
       <a href="https://github.com/Moulya-Reddy/SimCLR_Self-Supervised_Learning" target="_blank" class="proj-card fi">
         <div class="pbg bg-ssl"></div>
         <div class="ci">
@@ -825,7 +840,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 9. Book Rec -->
+      <!-- 10. Book Rec -->
       <a href="https://github.com/Moulya-Reddy/Book_Recommendation_System_Machine_Learning_Id_Vectorisation" target="_blank" class="proj-card fi">
         <div class="pbg bg-book"></div>
         <div class="ci">
@@ -837,7 +852,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 10. Career -->
+      <!-- 11. Career -->
       <a href="https://github.com/Moulya-Reddy/Career_Prediction_Machine_Learning_Random_Forest" target="_blank" class="proj-card fi">
         <div class="pbg bg-career"></div>
         <div class="ci">
@@ -849,7 +864,7 @@ footer { padding:4rem 0 3rem; border-top:1px solid var(--border); margin-bottom:
         </div>
       </a>
 
-      <!-- 11. Tableau -->
+      <!-- 12. Tableau -->
       <a href="https://github.com/Moulya-Reddy/Tableau_Employee_Data_Analysis_Project" target="_blank" class="proj-card fi">
         <div class="pbg bg-tableau"></div>
         <div class="ci">
@@ -1264,7 +1279,7 @@ My primary interests include <strong>Agentic AI</strong>, <strong>Retrieval-Augm
 </p>
 
 <p>
-I have built projects involving <strong>Multi-Agent Drone Coordination</strong>, <strong>StyleGAN2-ADA based Facial Age Manipulation</strong>, <strong>SimCLR Self-Supervised Learning</strong>, a <strong>RAG + RL NBA strategy assistant (RivalIQ)</strong>, a from-scratch <strong>ReAct tool-using agent</strong>, a <strong>LangGraph-orchestrated enterprise policy copilot</strong>, and AI-powered communication analysis systems. My research has resulted in a <span class="hlp">peer-reviewed journal publication</span> in Computer Vision and Generative AI.
+I have built projects involving <strong>Multi-Agent Drone Coordination</strong>, <strong>StyleGAN2-ADA based Facial Age Manipulation</strong>, <strong>SimCLR Self-Supervised Learning</strong>, a <strong>RAG + RL NBA strategy assistant (RivalIQ)</strong>, <strong>Doraemon’s Gadget Lab</strong> (Flask, RAG, and a miniature PyTorch Transformer), a from-scratch <strong>ReAct tool-using agent</strong>, a <strong>LangGraph-orchestrated enterprise policy copilot</strong>, and AI-powered communication analysis systems. My research has resulted in a <span class="hlp">peer-reviewed journal publication</span> in Computer Vision and Generative AI.
 </p>
 
 <p>
@@ -1280,7 +1295,7 @@ I currently work as a <strong>System Engineer at Tata Consultancy Services</stro
 <div class="ir"><span class="ik">publication</span><span class="iv">1</span></div>
 <div class="ir"><span class="ik">expertise</span><span class="iv p">"DRL, GenAI, CV, RAG, LLM Agents"</span></div>
 <div class="ir"><span class="ik">languages</span><span class="iv">"Python, Java, C, JS"</span></div>
-<div class="ir"><span class="ik">repos</span><span class="iv">16</span></div>
+<div class="ir"><span class="ik">repos</span><span class="iv">17</span></div>
 <div class="ir"><span class="ik">cgpa</span><span class="iv">9.24</span></div>
       </div>
     </div>
@@ -1643,8 +1658,8 @@ function counter(el,to,sfx=''){
 }
 const cobs=new IntersectionObserver(entries=>{
   if(entries[0].isIntersecting){
-    counter(document.getElementById('c1'),16);
-    counter(document.getElementById('c2'),11);
+    counter(document.getElementById('c1'),17);
+    counter(document.getElementById('c2'),12);
     counter(document.getElementById('c3'),1);
     counter(document.getElementById('c4'),10);
     cobs.disconnect();
